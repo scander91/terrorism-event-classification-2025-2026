@@ -1,0 +1,207 @@
+================================================================
+  CODE CLEANUP CHECKLIST
+  What to do with your messy code, step by step
+================================================================
+
+PRIORITY ORDER:
+  1. Chapter 2 (working) — clean first
+  2. Chapter 5 (working) — clean second
+  3. Upload Ch.2 + Ch.5 to GitHub
+  4. Chapter 3 (broken) — fix and clean
+  5. Chapter 4 (broken) — fix and clean
+  6. Upload Ch.3 + Ch.4 to GitHub
+
+
+================================================================
+CHAPTER 2 CLEANUP (estimated: 3-5 hours)
+================================================================
+
+□ Step 1: Find all your preprocessing code
+  - Search your computer for all .py and .ipynb files related
+    to GTD preprocessing
+  - Look in: your project folders, Downloads, Desktop, Jupyter
+  - Collect them all in one temporary folder
+
+□ Step 2: Identify what each file does
+  - Open each file and write a 1-line comment at the top
+    describing what it does
+  - Group them by function:
+    * Data loading files
+    * EDA/visualization files
+    * Missing value imputation files
+    * Geocoding files
+    * Feature engineering files
+    * Evaluation files
+
+□ Step 3: Convert notebooks to scripts (if needed)
+  - If your code is in Jupyter notebooks (.ipynb):
+    jupyter nbconvert --to script your_notebook.ipynb
+  - This creates a .py file from the notebook
+
+□ Step 4: Create clean scripts
+  - For each group from Step 2, create ONE clean .py file
+  - Name them:
+    01_data_loading.py
+    02_eda.py
+    03_missing_value_imputation.py
+    04_geocoding.py
+    05_feature_engineering.py
+    06_evaluation.py
+
+  FOR EACH FILE:
+  □ Remove all print debugging statements
+  □ Remove commented-out experimental code
+  □ Remove hardcoded file paths (use config.py instead)
+  □ Add a docstring at the top explaining what it does
+  □ Add function docstrings
+  □ Make sure imports are at the top
+
+□ Step 5: Create config.py
+  - Put ALL file paths, thresholds, and parameters here
+  - Other scripts import from config.py
+
+□ Step 6: Create run_pipeline.py
+  - This calls all 6 scripts in order
+  - Test it: does it run from start to finish?
+
+□ Step 7: Test
+  - Delete any output files
+  - Run: python run_pipeline.py
+  - Does it produce the correct output?
+  - If yes → Chapter 2 is done
+
+
+================================================================
+CHAPTER 5 CLEANUP (estimated: 3-5 hours)
+================================================================
+
+□ Step 1: Find all your ICL evaluation code
+  - Translation scripts
+  - Prompt template files
+  - Evaluation scripts
+  - Cross-domain validation scripts
+
+□ Step 2: Organize into 3 groups:
+  - benchmark_construction/ (translation, glossary, validation)
+  - icl_evaluation/ (prompts, selection, evaluation, scoring)
+  - cross_domain/ (Arabic benchmark experiments)
+
+□ Step 3: Clean each script (same rules as Ch.2 Step 4)
+
+□ Step 4: Verify the glossary.json file
+  - Make sure your 87-term bilingual glossary is saved as
+    benchmark_construction/glossary.json
+  - This is one of the few data files we DO upload
+
+□ Step 5: Create config.py with model names, paths, parameters
+
+□ Step 6: Create run_experiments.py
+
+□ Step 7: Test end-to-end
+
+
+================================================================
+AFTER CH.2 AND CH.5 ARE CLEAN — FIRST UPLOAD
+================================================================
+
+□ Follow GITHUB_SETUP_GUIDE.txt Steps 1-9
+□ Upload Ch.2 and Ch.5 code
+□ Verify on GitHub that everything looks good
+□ Send the GitHub link to your supervisor
+
+
+================================================================
+CHAPTER 3 CLEANUP (estimated: 8-15 hours)
+================================================================
+
+This is the hard one because the code is broken.
+
+□ Step 1: Collect all MTL-CBERT code files
+
+□ Step 2: Identify what's broken
+  - Can you load the data? If no → fix data loading first
+  - Can you build the model? If no → check PyTorch versions
+  - Can you train for 1 epoch? If no → check loss function
+  - Can you evaluate? If no → check metrics code
+
+□ Step 3: Common issues to check:
+  □ torch-geometric version compatibility with PyTorch
+  □ ConfliBERT model name on HuggingFace
+    (should be: "snowood1/ConfliBERT-scr-uncased")
+  □ CUDA/GPU memory issues — try smaller batch size
+  □ File paths that point to old locations
+
+□ Step 4: Once it runs, organize into:
+  - models/ (5 model files)
+  - data_augmentation/ (2 files)
+  - train.py, evaluate.py, run_experiments.py
+
+□ Step 5: Test: python run_experiments.py
+  - Does it reproduce your Table 3.9 results?
+
+□ Step 6: Upload to GitHub
+
+
+================================================================
+CHAPTER 4 CLEANUP (estimated: 8-15 hours)
+================================================================
+
+□ Step 1: Collect NER + Classification code
+
+□ Step 2: Identify what's broken (same debugging as Ch.3)
+
+□ Step 3: Common issues:
+  □ torchcrf package version
+  □ Gazetteer file format/path
+  □ BIO tagging consistency
+  □ 4-bit quantization for LLM evaluation
+
+□ Step 4: Organize into:
+  - models/ (4 model files)
+  - data_preparation/ (2 files)
+  - icl_evaluation/ (2 files)
+  - train_ner.py, train_classification.py, run_experiments.py
+
+□ Step 5: Test and upload
+
+
+================================================================
+MINIMUM STANDARD FOR EACH SCRIPT
+================================================================
+
+Every .py file should have:
+
+1. Module docstring at the top:
+   """
+   Chapter X: [description]
+   This script [what it does].
+   
+   Usage:
+       python script_name.py
+   """
+
+2. Imports organized:
+   import os           # stdlib first
+   import numpy as np  # third-party second
+   from config import *  # local third
+
+3. Functions with docstrings:
+   def impute_missing(df, method="mean"):
+       """Impute missing values using the specified method.
+       
+       Args:
+           df: Input DataFrame
+           method: "mean" or "median"
+       
+       Returns:
+           DataFrame with imputed values
+       """
+
+4. Main block at the bottom:
+   if __name__ == "__main__":
+       main()
+
+5. NO hardcoded paths — use config.py
+6. NO API keys in code — use environment variables
+7. NO print("debug123") — use proper logging or remove
+================================================================

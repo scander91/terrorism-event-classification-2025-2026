@@ -1,0 +1,64 @@
+# =============================================================================
+# Arabic Terrorism Text Classification Pipeline - Configuration
+# Server: apl12 | GPU: RTX 2080 Ti (11GB) | Env: terrorner_env
+# =============================================================================
+
+paths:
+  gtd_pkl: "/home/macierz/mohabdal/TerrorismNER_Project/checkpoints/gtd_full.pkl"
+  gtd_xlsx: "/home/macierz/mohabdal/TerrorismNER_Project/globalterrorismdb_0522dist (1).xlsx"
+  output_dir: "outputs"
+  glossary: "glossary/terrorism_glossary.json"
+
+preprocessing:
+  min_summary_length: 20
+  year_range: [1970, 2020]
+  exclude_unknown_labels: false
+
+translation:
+  model: "/home/macierz/mohabdal/TerrorismNER_Project/models/nllb-1.3b"
+  model_large: "facebook/nllb-200-3.3B"
+  src_lang: "eng_Latn"
+  tgt_lang: "arb_Arab"
+  batch_size: 8
+  max_length: 512
+  num_beams: 2
+  device: "cuda"
+  dtype: "float16"
+
+refinement:
+  model: "FreedomIntelligence/AceGPT-7B-chat"
+  fallback_model: "core42/jais-13b-chat"
+  quantization: "8bit"
+  max_new_tokens: 512
+  temperature: 0.3
+  min_term_rate_threshold: 0.80
+
+validation:
+  min_back_translation_bleu: 0.25
+  min_term_success_rate: 0.80
+  max_perplexity: 150.0
+  max_duplicate_similarity: 0.92
+  length_ratio_range: [0.3, 3.0]
+  backtranslation_model: "/home/macierz/mohabdal/TerrorismNER_Project/models/nllb-1.3b"
+  perplexity_model: "aubmindlab/bert-base-arabertv02"
+
+synthesis:
+  model: "FreedomIntelligence/AceGPT-7B-chat"
+  dialects: ["MSA", "Egyptian", "Levantine", "Gulf", "Iraqi"]
+  samples_per_label_per_dialect: 50
+  max_samples_per_label: 500
+  temperature: 0.8
+  top_p: 0.95
+
+classification:
+  encoder: "aubmindlab/bert-base-arabertv02"
+  num_attack_classes: 9
+  num_weapon_classes: 12
+  num_target_classes: 22
+  lora_rank: 16
+  lora_alpha: 32
+  learning_rate: 2.0e-5
+  batch_size: 8
+  epochs: 20
+  warmup_ratio: 0.1
+  weight_decay: 0.01

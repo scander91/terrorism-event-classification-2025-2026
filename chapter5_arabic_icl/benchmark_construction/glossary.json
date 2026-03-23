@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Bilingual En-Ar terrorism domain glossary for terminology-constrained translation",
+    "num_terms": 87,
+    "categories": ["attack_types", "weapon_types", "target_types", "coded_expressions", "military_terms", "dialect_markers"]
+  },
+  "terms": {
+    "attack_types": [
+      {"en": "assassination", "ar": "اغتيال", "variants": ["عملية اغتيال", "تصفية"]},
+      {"en": "armed assault", "ar": "هجوم مسلح", "variants": ["اعتداء مسلح"]},
+      {"en": "bombing", "ar": "تفجير", "variants": ["عملية تفجير", "تفجير انتحاري"]},
+      {"en": "hijacking", "ar": "اختطاف", "variants": ["خطف طائرة", "قرصنة"]},
+      {"en": "hostage taking", "ar": "احتجاز رهائن", "variants": ["أخذ رهائن", "خطف"]},
+      {"en": "kidnapping", "ar": "خطف", "variants": ["اختطاف", "أسر"]},
+      {"en": "infrastructure attack", "ar": "هجوم على البنية التحتية", "variants": ["تخريب منشآت"]},
+      {"en": "unarmed assault", "ar": "اعتداء بدون سلاح", "variants": ["هجوم أعزل"]},
+      {"en": "suicide attack", "ar": "هجوم انتحاري", "variants": ["عملية انتحارية", "تفجير انتحاري"]}
+    ],
+    "weapon_types": [
+      {"en": "improvised explosive device", "ar": "عبوة ناسفة", "variants": ["عبوة متفجرة", "لغم"]},
+      {"en": "car bomb", "ar": "سيارة مفخخة", "variants": ["سيارة ملغومة"]},
+      {"en": "explosive", "ar": "متفجرات", "variants": ["مواد متفجرة", "ذخيرة"]},
+      {"en": "firearm", "ar": "سلاح ناري", "variants": ["أسلحة نارية", "بندقية"]},
+      {"en": "automatic weapon", "ar": "سلاح آلي", "variants": ["رشاش", "كلاشنكوف"]},
+      {"en": "rifle", "ar": "بندقية", "variants": ["سلاح"]},
+      {"en": "grenade", "ar": "قنبلة يدوية", "variants": ["رمانة"]},
+      {"en": "rocket", "ar": "صاروخ", "variants": ["قذيفة صاروخية"]},
+      {"en": "mortar", "ar": "هاون", "variants": ["قذيفة هاون"]},
+      {"en": "landmine", "ar": "لغم أرضي", "variants": ["لغم", "حقل ألغام"]},
+      {"en": "knife", "ar": "سكين", "variants": ["خنجر", "سلاح أبيض"]},
+      {"en": "incendiary device", "ar": "جهاز حارق", "variants": ["قنبلة حارقة", "مولوتوف"]},
+      {"en": "chemical agent", "ar": "عامل كيميائي", "variants": ["سلاح كيميائي", "غاز سام"]}
+    ],
+    "target_types": [
+      {"en": "government building", "ar": "مبنى حكومي", "variants": ["مقر حكومي", "دائرة حكومية"]},
+      {"en": "military base", "ar": "قاعدة عسكرية", "variants": ["ثكنة عسكرية", "معسكر"]},
+      {"en": "police station", "ar": "مركز شرطة", "variants": ["مخفر", "قسم شرطة"]},
+      {"en": "embassy", "ar": "سفارة", "variants": ["بعثة دبلوماسية", "قنصلية"]},
+      {"en": "checkpoint", "ar": "نقطة تفتيش", "variants": ["حاجز أمني", "حاجز"]},
+      {"en": "marketplace", "ar": "سوق", "variants": ["سوق شعبي", "بازار"]},
+      {"en": "mosque", "ar": "مسجد", "variants": ["جامع", "مصلى"]},
+      {"en": "church", "ar": "كنيسة", "variants": ["دير"]},
+      {"en": "school", "ar": "مدرسة", "variants": ["جامعة", "مؤسسة تعليمية"]},
+      {"en": "hospital", "ar": "مستشفى", "variants": ["مشفى", "مركز صحي"]},
+      {"en": "pipeline", "ar": "خط أنابيب", "variants": ["أنبوب نفط"]},
+      {"en": "power station", "ar": "محطة كهرباء", "variants": ["محطة طاقة"]},
+      {"en": "bridge", "ar": "جسر", "variants": ["كوبري"]},
+      {"en": "airport", "ar": "مطار", "variants": ["مدرج"]},
+      {"en": "civilian", "ar": "مدني", "variants": ["مواطن", "مدنيين"]}
+    ],
+    "coded_expressions": [
+      {"en": "IED", "ar": "عبوة ناسفة", "coded_ar": "الهدية", "note": "Coded term used in extremist forums"},
+      {"en": "martyrdom operation", "ar": "عملية استشهادية", "coded_ar": "عملية فدائية", "note": "Euphemism for suicide attack"},
+      {"en": "government/authority", "ar": "حكومة", "coded_ar": "الطاغوت", "note": "Derogatory term for ruling authority"},
+      {"en": "apostate", "ar": "مرتد", "coded_ar": "المرتدين", "note": "Used to label targets"},
+      {"en": "crusaders", "ar": "صليبيون", "coded_ar": "الصليبيين", "note": "Used for Western forces"},
+      {"en": "infidels", "ar": "كفار", "coded_ar": "الكفرة", "note": "Used to dehumanize targets"},
+      {"en": "raid/attack", "ar": "غزوة", "coded_ar": "غزوة مباركة", "note": "Historical/religious framing"},
+      {"en": "pledge of allegiance", "ar": "بيعة", "coded_ar": "مبايعة", "note": "Organizational loyalty"},
+      {"en": "lions/soldiers", "ar": "جنود", "coded_ar": "أسود الخلافة", "note": "Self-referential praise"}
+    ],
+    "military_terms": [
+      {"en": "ambush", "ar": "كمين", "variants": ["نصب كمين"]},
+      {"en": "convoy", "ar": "قافلة", "variants": ["موكب"]},
+      {"en": "patrol", "ar": "دورية", "variants": ["طلعة"]},
+      {"en": "siege", "ar": "حصار", "variants": ["محاصرة"]},
+      {"en": "shelling", "ar": "قصف", "variants": ["قصف مدفعي", "ضرب"]},
+      {"en": "sniper", "ar": "قناص", "variants": ["رامي"]},
+      {"en": "militant", "ar": "مسلح", "variants": ["مقاتل", "متمرد"]},
+      {"en": "insurgent", "ar": "متمرد", "variants": ["عنصر مسلح"]},
+      {"en": "casualty", "ar": "ضحية", "variants": ["قتيل", "إصابة"]},
+      {"en": "detonation", "ar": "تفجير", "variants": ["انفجار", "تفجير عن بعد"]}
+    ],
+    "dialect_markers": [
+      {"dialect": "Egyptian", "en": "explosive belt", "msa": "حزام ناسف", "dialectal": "حزام متفجر"},
+      {"dialect": "Levantine", "en": "car bomb", "msa": "سيارة مفخخة", "dialectal": "سيارة ملغمة"},
+      {"dialect": "Gulf", "en": "checkpoint", "msa": "نقطة تفتيش", "dialectal": "نقطة تفتيش أمنية"},
+      {"dialect": "Iraqi", "en": "IED", "msa": "عبوة ناسفة", "dialectal": "عبوة لاصقة"},
+      {"dialect": "MSA", "en": "suicide bomber", "msa": "انتحاري", "dialectal": "انتحاري"}
+    ]
+  }
+}

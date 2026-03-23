@@ -1,0 +1,211 @@
+================================================================
+  GITHUB SETUP GUIDE — Step by Step for First-Time Users
+  Mohammed's Dissertation Code Repository
+================================================================
+
+Follow these steps IN ORDER. Each step takes 2-5 minutes.
+
+
+================================================================
+STEP 1: CREATE GITHUB ACCOUNT (5 minutes)
+================================================================
+
+1. Go to: https://github.com/signup
+2. Enter your email, create a password, choose a username
+   Suggested username: mohammedabdalsalam (or similar)
+3. Verify your email
+4. Done — you now have a GitHub account
+
+
+================================================================
+STEP 2: INSTALL GIT ON YOUR COMPUTER (5 minutes)
+================================================================
+
+Windows:
+  1. Download from: https://git-scm.com/download/win
+  2. Run installer, click "Next" for all defaults
+  3. Open "Git Bash" from Start menu
+
+Mac:
+  1. Open Terminal
+  2. Type: git --version
+  3. If not installed, it will prompt you to install
+
+Linux:
+  1. Open terminal
+  2. Run: sudo apt install git
+
+After installing, configure your name and email:
+  git config --global user.name "Mohammed Abdalsalam"
+  git config --global user.email "your-email@example.com"
+
+
+================================================================
+STEP 3: CREATE THE REPOSITORY ON GITHUB (3 minutes)
+================================================================
+
+1. Go to: https://github.com/new
+2. Fill in:
+   - Repository name: terrorism-event-classification
+   - Description: Code for PhD dissertation on Transformer-Based
+     Multi-Task and Cross-Lingual Methods for Terrorism Event
+     Classification
+   - Select: Public
+   - Check: "Add a README file"
+   - Add .gitignore: Python
+   - Choose a license: MIT License
+3. Click "Create repository"
+
+
+================================================================
+STEP 4: CLONE THE REPOSITORY TO YOUR COMPUTER (2 minutes)
+================================================================
+
+1. On your new GitHub repository page, click the green
+   "Code" button
+2. Copy the HTTPS URL (looks like:
+   https://github.com/YOUR_USERNAME/terrorism-event-classification.git)
+3. Open terminal/Git Bash
+4. Navigate to where you want the folder:
+   cd ~/Desktop
+5. Clone:
+   git clone https://github.com/YOUR_USERNAME/terrorism-event-classification.git
+6. Enter the folder:
+   cd terrorism-event-classification
+
+
+================================================================
+STEP 5: CREATE THE FOLDER STRUCTURE (5 minutes)
+================================================================
+
+Run these commands in terminal (inside the repository folder):
+
+mkdir -p chapter2_preprocessing/data
+mkdir -p chapter3_mtlcbert/models
+mkdir -p chapter3_mtlcbert/data_augmentation
+mkdir -p chapter4_ner_attribution/models
+mkdir -p chapter4_ner_attribution/data_preparation
+mkdir -p chapter4_ner_attribution/icl_evaluation
+mkdir -p chapter5_arabic_icl/benchmark_construction
+mkdir -p chapter5_arabic_icl/icl_evaluation
+mkdir -p chapter5_arabic_icl/cross_domain
+mkdir -p shared
+mkdir -p results/chapter2
+mkdir -p results/chapter3
+mkdir -p results/chapter4
+mkdir -p results/chapter5
+
+
+================================================================
+STEP 6: COPY YOUR CODE FILES (the main work)
+================================================================
+
+This is where you put your actual code. For each chapter:
+
+Chapter 2 (you have working code):
+  - Copy your preprocessing scripts into chapter2_preprocessing/
+  - Rename them to match the structure:
+    01_data_loading.py
+    02_eda.py
+    03_missing_value_imputation.py
+    04_geocoding.py
+    05_feature_engineering.py
+    06_evaluation.py
+  - Create run_pipeline.py that calls all steps in order
+
+Chapter 5 (you have working code):
+  - Copy your translation scripts into
+    chapter5_arabic_icl/benchmark_construction/
+  - Copy your ICL evaluation scripts into
+    chapter5_arabic_icl/icl_evaluation/
+  - Copy cross-domain scripts into
+    chapter5_arabic_icl/cross_domain/
+
+Chapters 3 & 4 (need fixing — do later):
+  - Copy whatever code you have into the respective folders
+  - Fix and organize later
+
+
+================================================================
+STEP 7: COPY THE README FILES I CREATED
+================================================================
+
+Replace the auto-generated README.md with the main README.md
+I provided. Also copy the chapter-specific READMEs into their
+respective folders.
+
+
+================================================================
+STEP 8: ADD, COMMIT, AND PUSH (the actual upload)
+================================================================
+
+These 4 commands upload everything to GitHub:
+
+  git add .
+  git commit -m "Initial release: Ch.2 preprocessing and Ch.5 Arabic ICL evaluation"
+  git push origin main
+
+If it asks for authentication:
+  - Go to GitHub → Settings → Developer Settings →
+    Personal Access Tokens → Tokens (classic)
+  - Generate new token, check "repo" scope
+  - Copy the token
+  - Use the token as your password when Git asks
+
+
+================================================================
+STEP 9: VERIFY ON GITHUB
+================================================================
+
+1. Go to your repository page on GitHub
+2. You should see all your files and folders
+3. The README.md should display nicely at the bottom
+
+
+================================================================
+STEP 10: LATER — ADD CHAPTERS 3 AND 4
+================================================================
+
+When you fix Ch.3 and Ch.4 code, upload them:
+
+  git add .
+  git commit -m "Add Chapter 3: MTL-CBERT framework"
+  git push origin main
+
+  # Later:
+  git add .
+  git commit -m "Add Chapter 4: NER and attribution framework"
+  git push origin main
+
+
+================================================================
+COMMON COMMANDS YOU'LL USE
+================================================================
+
+Check status (what changed):
+  git status
+
+Add all changed files:
+  git add .
+
+Commit with a message:
+  git commit -m "your message here"
+
+Push to GitHub:
+  git push origin main
+
+Pull latest from GitHub:
+  git pull origin main
+
+
+================================================================
+IMPORTANT: NEVER UPLOAD THESE
+================================================================
+
+- GTD raw data (it's restricted — users must request it)
+- API keys (Google Maps, OpenAI)
+- Model weights (too large — users download from HuggingFace)
+- Personal data or passwords
+
+The .gitignore file handles most of this automatically.
+================================================================
